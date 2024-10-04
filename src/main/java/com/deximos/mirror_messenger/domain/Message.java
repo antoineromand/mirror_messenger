@@ -7,13 +7,13 @@ public class Message {
     private int timestamp;
     private User author;
     private String content;
-    private Room room;
+    private int roomId;
     
-    public Message(int id, int timestamp, String content, Room room, User author) {
+    public Message(int id, int timestamp, String content, int roomId, User author) {
         this.id = id;
         this.timestamp = timestamp;
         this.content = content;
-        this.room = room;
+        this.roomId = roomId;
         this.author = author;
     }
 
@@ -41,12 +41,12 @@ public class Message {
         this.content = content;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public User getAuthor() {
