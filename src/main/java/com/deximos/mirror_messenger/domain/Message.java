@@ -1,20 +1,18 @@
 package com.deximos.mirror_messenger.domain;
 
-import com.deximos.mirror_messenger.domain.user.User;
-
 public class Message { 
     private int id;
     private int timestamp;
-    private User author;
+    private String userId;
     private String content;
     private int roomId;
     
-    public Message(int id, int timestamp, String content, int roomId, User author) {
+    public Message(int id, int timestamp, String content, int roomId, String userId) {
         this.id = id;
         this.timestamp = timestamp;
         this.content = content;
         this.roomId = roomId;
-        this.author = author;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -49,12 +47,11 @@ public class Message {
         this.roomId = roomId;
     }
 
-    public User getAuthor() {
-        return author;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setAuthor(String userId) {
+        this.userId = userId;
     }
-    
 }

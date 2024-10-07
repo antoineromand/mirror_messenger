@@ -3,16 +3,15 @@ package com.deximos.mirror_messenger.domain;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import com.deximos.mirror_messenger.domain.user.UserWithRole;
 
 
 public class Room {
     private int id;
     private Timestamp timestamp;
-    private ArrayList<UserWithRole> users;
+    private ArrayList<String> users;
     private String name;
 
-    public Room(int id, Timestamp timestamp, ArrayList<UserWithRole> users, String name) {
+    public Room(int id, Timestamp timestamp, ArrayList<String> users, String name) {
         this.id = id;
         this.timestamp = timestamp;
         this.users = users;
@@ -35,11 +34,11 @@ public class Room {
         this.timestamp = timestamp;
     }
 
-    public ArrayList<UserWithRole> getUsers() {
+    public ArrayList<String> getUsers() {
         return users;
     }
 
-    public void setUsers(ArrayList<UserWithRole> users) {
+    public void setUsers(ArrayList<String> users) {
         this.users = users;
     }
 
