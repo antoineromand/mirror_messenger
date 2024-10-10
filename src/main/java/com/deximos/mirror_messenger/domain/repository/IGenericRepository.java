@@ -9,7 +9,7 @@ public interface IGenericRepository<T> {
 
     public void create(T entity);
 
-    public void update(T entity);
+    public void update(T entity, int id);
 
     public void delete(int roomId);
 }

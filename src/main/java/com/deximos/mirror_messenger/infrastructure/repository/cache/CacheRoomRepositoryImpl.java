@@ -32,8 +32,7 @@ public class CacheRoomRepositoryImpl implements IRoomRepository {
     }
 
     @Override
-    public void update(Room room) {
-        int roomId = room.getId();
+    public void update(Room room, int roomId) {
         Optional<Room> optionalRoom = this.rooms.stream().filter(r -> r.getId() == roomId).findFirst();
         if (!optionalRoom.isPresent()) {
             System.out.printf("Cannot find room n°%d%n", roomId);
@@ -52,9 +51,9 @@ public class CacheRoomRepositoryImpl implements IRoomRepository {
     public void delete(int roomId) {
         boolean isRemoved = this.rooms.removeIf(room -> room.getId() == roomId);
         if (isRemoved) {
-            System.out.printf("Room n°%d has been deleted%n", roomId);
+            System.out.printf("Room n°%d has been deleted.%n", roomId);
         }
-        System.out.printf("No room found with id n°%d to delete%n", roomId);
+        System.out.printf("No room found with id n°%d to delete.%n", roomId);
     }
 
 }
