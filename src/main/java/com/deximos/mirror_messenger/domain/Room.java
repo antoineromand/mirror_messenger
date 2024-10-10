@@ -1,6 +1,7 @@
 package com.deximos.mirror_messenger.domain;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 
 
@@ -11,9 +12,9 @@ public class Room {
     private ArrayList<String> users;
     private String name;
 
-    public Room(int id, Timestamp timestamp, ArrayList<String> users, String name) {
+    public Room(int id, ArrayList<String> users, String name) {
         this.id = id;
-        this.timestamp = timestamp;
+        this.timestamp = Timestamp.from(Instant.now());
         this.users = users;
         this.name = name;
     }

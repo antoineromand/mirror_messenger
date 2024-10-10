@@ -21,10 +21,11 @@ public class CacheMessageRepositoryImpl implements IMessageRepository {
         int end = Math.min(start + limit, filteredMessages.size());
         return filteredMessages.subList(start, end);
     }
-    
+
     @Override
     public void add(Message message) {
         this.messages.add(message);
+        message.notifyMessage();
     }
-    
+
 }

@@ -1,9 +1,6 @@
 package com.deximos.mirror_messenger.domain.repository;
 
-public interface IRoomRepository {
-    public void create(String user);
+import com.deximos.mirror_messenger.domain.Room;
 
-    public void join(int roomId, String userId);
-
-    public void quit(int roomId, String userId);
+public interface IRoomRepository extends IGenericRepository<Room> {
 }
