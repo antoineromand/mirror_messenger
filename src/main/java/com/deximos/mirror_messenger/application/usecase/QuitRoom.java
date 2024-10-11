@@ -1,8 +1,11 @@
 package com.deximos.mirror_messenger.application.usecase;
 
+import org.springframework.stereotype.Service;
+
 import com.deximos.mirror_messenger.domain.Room;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
 
+@Service
 public class QuitRoom {
     private final IRoomRepository roomRepository;
 

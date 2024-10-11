@@ -1,10 +1,12 @@
 package com.deximos.mirror_messenger.application.usecase;
 
+import org.springframework.stereotype.Service;
+
 import com.deximos.mirror_messenger.domain.Message;
 import com.deximos.mirror_messenger.domain.Room;
 import com.deximos.mirror_messenger.domain.repository.IMessageRepository;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
-
+@Service
 public class SendMessage {
     private final IRoomRepository roomRepository;
     private final IMessageRepository messageRepository;
