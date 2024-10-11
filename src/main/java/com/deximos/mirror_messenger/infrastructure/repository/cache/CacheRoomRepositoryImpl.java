@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.deximos.mirror_messenger.domain.Room;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
 
+@Repository
 public class CacheRoomRepositoryImpl implements IRoomRepository {
 
     List<Room> rooms = new ArrayList<>();

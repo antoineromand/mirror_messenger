@@ -1,15 +1,18 @@
 package com.deximos.mirror_messenger.domain;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 public class Message {
     private int id;
-    private int timestamp;
+    private Timestamp timestamp;
     private String userId;
     private String content;
     private int roomId;
 
-    public Message(int id, int timestamp, String content, int roomId, String userId) {
+    public Message(int id, String content, int roomId, String userId) {
         this.id = id;
-        this.timestamp = timestamp;
+        this.timestamp = Timestamp.from(Instant.now());
         this.content = content;
         this.roomId = roomId;
         this.userId = userId;
@@ -27,11 +30,11 @@ public class Message {
         this.id = id;
     }
 
-    public int getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(int timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
