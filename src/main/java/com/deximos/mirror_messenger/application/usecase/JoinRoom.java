@@ -24,7 +24,7 @@ public class JoinRoom {
             System.out.printf("User %s has already joined the room n°%d%n", userId, roomId);
             return null;
         }
-        room.getUsers().add(userId);
+        this.roomRepository.join(roomId, userId);
         return "User has joined the room";
     }
 }

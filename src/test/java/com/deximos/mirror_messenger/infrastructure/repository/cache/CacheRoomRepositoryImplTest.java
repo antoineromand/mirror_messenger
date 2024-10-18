@@ -25,25 +25,21 @@ public class CacheRoomRepositoryImplTest {
     public void testRoomCreation() {
         ArrayList<String> users = new ArrayList<>();
         users.add("xxx-xx1");
-        Room room = new Room(0, users, "default");
-
-        this.cacheRoomRepositoryImpl.create(room);
+        this.cacheRoomRepositoryImpl.create(users, "default");
 
         List<Room> rooms = this.cacheRoomRepositoryImpl.list(0, 3);
         assertEquals(1, rooms.size(), "The repository should contain exactly one room.");
 
         Room findedRoom = this.cacheRoomRepositoryImpl.getById(0);
         assertNotNull(findedRoom, "Room should be found after creation.");
-        assertEquals(room, findedRoom, "The found room should be the same as the created room.");
     }
 
     @Test
     public void testRoomDelete() {
         ArrayList<String> users = new ArrayList<>();
         users.add("xxx-xx1");
-        Room room = new Room(0, users, "default");
 
-        this.cacheRoomRepositoryImpl.create(room);
+        this.cacheRoomRepositoryImpl.create(users, "default");
         this.cacheRoomRepositoryImpl.delete(0);
 
         assertNull(this.cacheRoomRepositoryImpl.getById(0), "Room should be null after deletion.");
@@ -53,12 +49,9 @@ public class CacheRoomRepositoryImplTest {
     public void testRoomUpdate() {
         ArrayList<String> users = new ArrayList<>();
         users.add("xxx-xx1");
-        Room room = new Room(0, users, "default");
+        this.cacheRoomRepositoryImpl.create(users, "default");
 
-        this.cacheRoomRepositoryImpl.create(room);
-        Room updatedRoom = new Room(0, users, "test");
-
-        this.cacheRoomRepositoryImpl.update(updatedRoom, 0);
+        this.cacheRoomRepositoryImpl.update("test", 0);
 
         Room findedRoom = this.cacheRoomRepositoryImpl.getById(0);
         assertNotNull(findedRoom, "Room should exist after update.");
@@ -76,7 +69,7 @@ public class CacheRoomRepositoryImplTest {
         for (int i = 0; i < 5; i++) {
             ArrayList<String> users = new ArrayList<>();
             users.add("user" + i);
-            this.cacheRoomRepositoryImpl.create(new Room(i, users, "Room" + i));
+            this.cacheRoomRepositoryImpl.create(users, "Room" + i);
         }
 
         List<Room> rooms = this.cacheRoomRepositoryImpl.list(0, 3);

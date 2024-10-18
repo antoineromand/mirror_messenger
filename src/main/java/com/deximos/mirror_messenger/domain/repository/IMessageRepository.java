@@ -7,7 +7,10 @@ import com.deximos.mirror_messenger.domain.Message;
 public interface IMessageRepository {
     public List<Message> list(int id, int start, int limit);
 
-    public void add(Message message);
+    public void add(String userId, String content, int roomId);
 
     public int getLastId();
+
+
+
 }

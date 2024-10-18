@@ -24,7 +24,7 @@ public class QuitRoom {
             System.out.printf("User %s not found in the room n°%d%n", userId, roomId);
             return null;
         }
-        room.getUsers().remove(userId);
+        this.roomRepository.quit(roomId, userId);
         return "User left the room N°" + roomId;
     }
 

@@ -2,10 +2,10 @@ package com.deximos.mirror_messenger.application.usecase;
 
 import org.springframework.stereotype.Service;
 
-import com.deximos.mirror_messenger.domain.Message;
 import com.deximos.mirror_messenger.domain.Room;
 import com.deximos.mirror_messenger.domain.repository.IMessageRepository;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
+
 @Service
 public class SendMessage {
     private final IRoomRepository roomRepository;
@@ -30,9 +30,7 @@ public class SendMessage {
             System.out.println("Le message ne peut pas être crée sans contenu.");
             return null;
         }
-        int id = this.messageRepository.getLastId();
-        Message message = new Message(id, content, roomId, userId);
-        this.messageRepository.add(message);
+        this.messageRepository.add(userId, content, roomId);
         return "User send message";
     }
 }

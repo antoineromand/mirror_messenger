@@ -19,22 +19,19 @@ public class CacheMessageRepositoryImplTest {
 
     @Test
     public void testAddMessage() {
-        Message msg = new Message(1, 0, "salut", 1, "xxx-xxx-001");
-        this.cacheMessageRepository.add(msg);
+        this.cacheMessageRepository.add("xxx-xxx-001", "slt", 1);
         List<Message> messages = this.cacheMessageRepository.list(1, 0, 10);
         assertEquals(1, messages.size());
-        assertEquals(msg, messages.get(0));
+        assertEquals("xxx-xxx-001", messages.get(0).getUserId());
     }
 
     @Test
     public void testPagination() {
-        Message msg = new Message(1, 0, "salut", 1, "xxx-xxx-001");
-        Message msg2 = new Message(2, 0, "salut", 1, "xxx-xxx-002");
-        this.cacheMessageRepository.add(msg);
-        this.cacheMessageRepository.add(msg2);
+        this.cacheMessageRepository.add("xxx-xxx-001", "slt", 1);
+        this.cacheMessageRepository.add("xxx-xxx-002", "slt", 1);
         List<Message> messages = this.cacheMessageRepository.list(1, 1, 10);
-        assertEquals(msg2, messages.get(0));
+        assertEquals("xxx-xxx-002", messages.get(0).getUserId());
         List<Message> messages2 = this.cacheMessageRepository.list(1, 0, 1);
-        assertEquals(msg, messages2.get(0));
+        assertEquals("xxx-xxx-001", messages2.get(0).getUserId());
     }
 }

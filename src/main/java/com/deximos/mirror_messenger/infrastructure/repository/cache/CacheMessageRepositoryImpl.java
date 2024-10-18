@@ -27,7 +27,9 @@ public class CacheMessageRepositoryImpl implements IMessageRepository {
     }
 
     @Override
-    public void add(Message message) {
+    public void add(String userId, String content, int roomId) {
+        int lastId = this.getLastId();
+        Message message = new Message(lastId, content, roomId, userId);
         this.messages.add(message);
         message.notifyMessage();
     }
