@@ -30,6 +30,7 @@ dependencies {
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testImplementation "org.mockito:mockito-core:3.+"
+	implementation 'org.springframework.boot:spring-boot-starter-websocket:3.3.4'
 }
 
 tasks.named('test') {

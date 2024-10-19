@@ -7,11 +7,11 @@ import com.deximos.mirror_messenger.domain.repository.IMessageRepository;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
 
 @Service
-public class SendMessage {
+public class SendMessageUseCase {
     private final IRoomRepository roomRepository;
     private final IMessageRepository messageRepository;
 
-    public SendMessage(IRoomRepository roomRepository, IMessageRepository messageRepository) {
+    public SendMessageUseCase(IRoomRepository roomRepository, IMessageRepository messageRepository) {
         this.roomRepository = roomRepository;
         this.messageRepository = messageRepository;
     }

@@ -15,19 +15,18 @@ import org.mockito.Mockito;
 
 import com.deximos.mirror_messenger.domain.Room;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
-import com.deximos.mirror_messenger.infrastructure.repository.cache.CacheMessageRepositoryImpl;
 
 import java.util.ArrayList;
 
 public class JoinRoomTest {
 
-    private JoinRoom joinRoomUseCase;
+    private JoinRoomUseCase joinRoomUseCase;
     private IRoomRepository roomRepository;
 
     @BeforeEach
     public void init() {
         this.roomRepository = Mockito.mock(IRoomRepository.class);
-        this.joinRoomUseCase = new JoinRoom(roomRepository);
+        this.joinRoomUseCase = new JoinRoomUseCase(roomRepository);
     }
 
     @Test

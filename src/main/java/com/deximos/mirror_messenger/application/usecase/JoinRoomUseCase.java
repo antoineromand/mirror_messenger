@@ -6,10 +6,10 @@ import com.deximos.mirror_messenger.domain.Room;
 import com.deximos.mirror_messenger.domain.repository.IRoomRepository;
 
 @Service
-public class JoinRoom {
+public class JoinRoomUseCase {
     private final IRoomRepository roomRepository;
 
-    public JoinRoom(IRoomRepository roomRepository) {
+    public JoinRoomUseCase(IRoomRepository roomRepository) {
         this.roomRepository = roomRepository;
     }
 
